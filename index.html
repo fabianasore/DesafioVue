@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Vue</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="app">
+
+  <h1>Painel de Tarefas</h1>
+
+  <section class="contador">
+    <h2>Contador: {{ contador }}</h2>
+
+    <button @click="incrementar">➕ Incrementar</button>
+    <button @click="decrementar">➖ Decrementar</button>
+    <button @click="resetar">🔄 Resetar</button>
+
+    <p v-if="contador >= 10" class="meta">
+      🎯 Meta atingida!
+    </p>
+  </section>
+
+  <hr>
+  
+  <section>
+    <h2>Tarefas</h2>
+
+    <button @click="adicionarTarefa">
+      ➕ Adicionar tarefa
+    </button>
+
+    <ul>
+      <li v-for="(tarefa, index) in tarefas" :key="index">
+        {{ tarefa.nome }}
+      </li>
+    </ul>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
